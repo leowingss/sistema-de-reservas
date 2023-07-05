@@ -1,15 +1,22 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
-  content: [
-    "./app/**/*.{js,ts,jsx,tsx,mdx}",
-    "./pages/**/*.{js,ts,jsx,tsx,mdx}",
-    "./components/**/*.{js,ts,jsx,tsx,mdx}",
- 
-    // Or if using `src` directory:
-    "./src/**/*.{js,ts,jsx,tsx,mdx}",
-  ],
+  content: ["./src/pages/**/*.{js,ts,jsx,tsx,mdx}", "./src/components/**/*.{js,ts,jsx,tsx,mdx}", "./src/app/**/*.{js,ts,jsx,tsx,mdx}"],
   theme: {
-    extend: {},
+    extend: {
+      backgroundImage: {
+        "search-background": "url(/world-map.png)",
+      },
+      colors: {
+        primary: "#590BD8",
+        primaryLighter: "#DDD5EA",
+        primaryDarker: "#312A4F",
+        grayPrimary: "#717171",
+        grayLighter: "#BBBFBF",
+      },
+      textColor: {
+        dark: "#717171",
+      },
+    },
   },
   plugins: [],
-}
+};
