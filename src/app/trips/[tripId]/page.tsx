@@ -31,7 +31,7 @@ const TripDetails = async ({ params }: { params: { tripId: string } }) => {
 
             {/* Reserva */}
 
-            <TripReservation trip={trip} />
+            <TripReservation tripStartDate={trip.startDate} tripEndDate={trip.endDate} maxGuests={trip.maxGuests} />
             <TripDescription description={trip.description} />
             <TripHighlights highlights={trip.highlights} />
             <TripLocation locationDescription={trip.locationDescription} location={trip.location} />
