@@ -8,6 +8,8 @@ import ReactCountryFlag from 'react-country-flag';
 import { format } from 'date-fns';
 import ptBR from 'date-fns/locale/pt-BR';
 import Button from '@/components/Button';
+import { useSession } from 'next-auth/react';
+import { useRouter } from 'next/navigation';
 
 const TripConfirmation = ({ params }: {
     params: {
@@ -18,7 +20,11 @@ const TripConfirmation = ({ params }: {
     const searchParams = useSearchParams()
 
     const [trip, setTrip] = useState<Trip | null>();
-    const [totalPrice, setTotalPrice] = useState();
+    const [totalPrice, setTotalPrice] = useState<Number>(0);
+
+    const router = useRouter();
+
+    const { status } = useSession();
 
     useEffect(() => {
         const fetchTrip = async () => {
@@ -34,10 +40,14 @@ const TripConfirmation = ({ params }: {
 
             setTrip(trip);
             setTotalPrice(totalPrice);
+        };
+
+        if (status === 'unauthenticated') {
+            router.push('/');
         }
 
         fetchTrip();
-    }, [])
+    }, [status])
 
     if (!trip) return null;
 
