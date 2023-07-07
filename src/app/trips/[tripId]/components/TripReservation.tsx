@@ -4,9 +4,9 @@ import Button from "@/components/Button";
 import DatePicker from "@/components/DatePicker";
 import Input from "@/components/Input";
 import { differenceInDays } from "date-fns";
-import { useRouter } from "next/navigation";
 import React from "react";
 import { Controller, useForm } from "react-hook-form";
+import { useRouter } from "next/navigation";
 
 interface TripReservationProps {
   tripId: string;
@@ -141,6 +141,10 @@ const TripReservation = ({ tripId, maxGuests, tripStartDate, tripEndDate, priceP
             value: maxGuests,
             message: `Número de hóspedes não pode ser maior que ${maxGuests}.`,
           },
+          min: {
+            value: 1,
+            message: 'Número de hóspedes tem que ser no mínimo 1'
+          }
         })}
         placeholder={`Número de hóspedes (max: ${maxGuests})`}
         className="mt-4"
