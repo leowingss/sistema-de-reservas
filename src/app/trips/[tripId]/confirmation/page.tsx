@@ -11,6 +11,7 @@ import Button from '@/components/Button';
 import { useSession } from 'next-auth/react';
 import { useRouter } from 'next/navigation';
 import { toast } from 'react-toastify';
+import { loadStripe } from '@stripe/stripe-js';
 
 const TripConfirmation = ({ params }: {
     params: {
@@ -58,19 +59,29 @@ const TripConfirmation = ({ params }: {
     if (!trip) return null;
 
     const handleBuyClick = async () => {
-        const res = await fetch('http://localhost:3000/api/trips/reservation', {
+        const res = await fetch('http://localhost:3000/api/payment', {
             method: 'POST',
             body: Buffer.from(
                 JSON.stringify({
-                    userId: (data?.user as any).id,
                     tripId: params.tripId,
                     startDate: searchParams.get('startDate'),
                     endDate: searchParams.get('endDate'),
                     guests: Number(searchParams.get('guests')),
-                    totalPaid: totalPrice
+                    totalPrice,
+                    coverImg: trip.coverImg,
+                    name: trip.name,
+                    description: trip.description
                 })
             )
         });
+
+        const { sessionId } = await res.json();
+
+        //usar no front
+        const stripe = await loadStripe(process.env.NEXT_PUBLIC_STRIPE_KEY as string);
+
+        //redirecionar para o checkout
+        await stripe?.redirectToCheckout({ sessionId });
 
         if (!res.ok) {
             return toast.error('Erro ao reservar');
