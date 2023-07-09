@@ -4,9 +4,9 @@ import Button from "@/components/Button";
 import DatePicker from "@/components/DatePicker";
 import Input from "@/components/Input";
 import { differenceInDays } from "date-fns";
+import { useRouter } from "next/navigation";
 import React from "react";
 import { Controller, useForm } from "react-hook-form";
-import { useRouter } from "next/navigation";
 
 interface TripReservationProps {
   tripId: string;
@@ -83,7 +83,11 @@ const TripReservation = ({ tripId, maxGuests, tripStartDate, tripEndDate, priceP
   const endDate = watch("endDate");
 
   return (
-    <div className="flex flex-col px-5">
+    <div className="flex flex-col px-5 lg:min-w-[380px] lg:p-5 lg:border-grayLighter lg:border lg:rounded-lg lg:shadow-md">
+      <p className="text-xl hidden text-primaryDarker mb-4 lg:block">
+        <span className="font-semibold">R${pricePerDay}</span> por dia
+      </p>
+
       <div className="flex gap-4">
         <Controller
           name="startDate"
@@ -141,10 +145,6 @@ const TripReservation = ({ tripId, maxGuests, tripStartDate, tripEndDate, priceP
             value: maxGuests,
             message: `Número de hóspedes não pode ser maior que ${maxGuests}.`,
           },
-          min: {
-            value: 1,
-            message: 'Número de hóspedes tem que ser no mínimo 1'
-          }
         })}
         placeholder={`Número de hóspedes (max: ${maxGuests})`}
         className="mt-4"
@@ -160,7 +160,7 @@ const TripReservation = ({ tripId, maxGuests, tripStartDate, tripEndDate, priceP
         </p>
       </div>
 
-      <div className="pb-10 border-b border-b-grayLighter w-full">
+      <div className="pb-10 border-b border-b-grayLighter w-full lg:border-none lg:pb-0">
         <Button onClick={() => handleSubmit(onSubmit)()} className="mt-3 w-full">
           Reservar agora
         </Button>
