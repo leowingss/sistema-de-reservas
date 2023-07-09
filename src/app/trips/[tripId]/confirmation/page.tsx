@@ -30,7 +30,7 @@ const TripConfirmation = ({ params }: {
 
     useEffect(() => {
         const fetchTrip = async () => {
-            const response = await fetch(`http://localhost:3000/api/trips/check`, {
+            const response = await fetch(`/api/trips/check`, {
                 method: 'POST',
                 body: JSON.stringify({
                     tripId: params.tripId,
@@ -59,7 +59,7 @@ const TripConfirmation = ({ params }: {
     if (!trip) return null;
 
     const handleBuyClick = async () => {
-        const res = await fetch('http://localhost:3000/api/payment', {
+        const res = await fetch('/api/payment', {
             method: 'POST',
             body: Buffer.from(
                 JSON.stringify({
