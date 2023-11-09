@@ -1,38 +1,40 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Sistema de Reservas
 
-## Getting Started
+## Sobre o projeto
 
-First, run the development server:
+Este projeto é um sistema de reservas, onde o usuário pode agendar um hotel, fazenda, chalé e pousada para sua próxima viagem.
+Após escolher o local, o usuário pode ver fotos, destaques, descrição do lugar e realizar a sua reserva!
+É possível também realizar uma busca para uma viagem específica.
+O site contém um sistema de login realizado com o next-auth e sistema de pagamentos com o Stripe.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Layout 
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+<div style="display: flex; flex-wrap: wrap; gap:3px">
+<img src="./src/assets/home.png" style="width: 150px;">
+<img src="./src/assets/viagens.png" style="width: 150px;">
+<img src="./src/assets/hotel.png" style="width: 150px;">
+<img src="./src/assets/compra.png" style="width: 150px;">
+</div>
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
+## Layout Mobile
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+<div style="display: flex; flex-wrap: wrap; gap:3px">
+<img src="./src/assets/home-mobile.png" style="width: 150px;">
+<img src="./src/assets/viagens-mobile.png" style="width: 150px;">
+<img src="./src/assets/hotel-mobile.png" style="width: 150px;">
+<img src="./src/assets/compra-mobile.png" style="width: 150px;">
+<img src="./src/assets/stripe-mobile.png" style="width: 150px;">
+</div>
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
 
-## Learn More
 
-To learn more about Next.js, take a look at the following resources:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
 
-## Deploy on Vercel
+## Tecnologias utilizadas 
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+- Next.js, React
+- Tailwind
+- Prisma, supabase
+- Stripe
