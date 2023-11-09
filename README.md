@@ -11,10 +11,10 @@ O site contém um sistema de login realizado com o next-auth e sistema de pagame
 ## Layout 
 
 <div style="display: flex; flex-wrap: wrap; gap:3px">
-<img src="./src/assets/home.png" style="width: 150px;">
-<img src="./src/assets/viagens.png" style="width: 150px;">
-<img src="./src/assets/hotel.png" style="width: 150px;">
-<img src="./src/assets/compra.png" style="width: 150px;">
+<img src="./src/assets/home.png" style="width: 250px;">
+<img src="./src/assets/viagens.png" style="width: 250px;">
+<img src="./src/assets/hotel.png" style="width: 250px;">
+<img src="./src/assets/compra.png" style="width: 250px;">
 </div>
 
 ## Layout Mobile
